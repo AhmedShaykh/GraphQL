@@ -11,6 +11,7 @@
     "push": "npx prisma db push"
   },
   "dependencies": {
+    "@apollo/client": "^3.12.4",
     "@apollo/server": "^4.11.3",
     "@as-integrations/next": "^3.2.0",
     "@prisma/client": "^6.2.1",
