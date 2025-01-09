@@ -45,11 +45,17 @@ export const resolvers = {
             });
         },
         deleteNovel: async (_parent: any, args: any, context: any) => {
-            return await prisma.novel.delete({
+            const novelId = await prisma.author.deleteMany({
+                where: {
+                    novelId: args.id
+                }
+            });
+            const novel = await prisma.novel.delete({
                 where: {
                     id: args.id
                 }
             });
+            return { novelId, novel };
         },
         addAuthor: async (_parent: any, args: any, context: any) => {
             return await prisma.author.create({
